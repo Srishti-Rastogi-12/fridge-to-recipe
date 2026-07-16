@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Custom focus outline for keyboard accessibility */
+  :focus-visible {
+    outline: 2px solid theme('colors.amber.500');
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Premium Glassmorphism Card Style */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card-hover:hover {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Input fields with deep dark styles */
+  .premium-input {
+    background-color: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: theme('colors.slate.100');
+    transition: all 0.2s ease-in-out;
+  }
+
+  .premium-input:focus {
+    border-color: theme('colors.amber.500');
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+    background-color: rgba(15, 23, 42, 0.8);
+    outline: none;
+  }
+
+  /* Shimmer background animation */
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(30, 41, 59, 0.5) 25%,
+      rgba(51, 65, 85, 0.7) 37%,
+      rgba(30, 41, 59, 0.5) 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.5s infinite ease-in-out;
+  }
+}
+
+/* Base custom keyframe fallback if needed */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom scrollbars for the interactive dashboard */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
